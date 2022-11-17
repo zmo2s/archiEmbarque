@@ -4,7 +4,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-
+// Nombre total de thread
+#define NB_FORK 2
 // Limite de l'incrément
 #define INCREMENT_LIMIT 1
 // Initialisation de la donnée
@@ -23,11 +24,11 @@ void job() {
 	exit(EXIT_SUCCESS);
 }
 // Fonction qui attend chacun des processus fils
-void waitForAll(int NB_CPU) {
+void waitForAll() {
 	int status;
 	pid_t pid;
 	int n = 0;
-	while (n < NB_CPU) {
+	while (n < NB_FORK) {
 		pid = wait(&status);
 		printf("Fork [%i] terminé avec le code %i\n", pid, status);
 		n++;
@@ -57,6 +58,6 @@ int main(int argc,char* argv[]) {
 			// On est dans le père
 		}
 	}
-	waitForAll(NB_CPU);
+	waitForAll();
 	return EXIT_SUCCESS;
 }

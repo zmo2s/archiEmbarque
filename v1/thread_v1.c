@@ -9,7 +9,6 @@
 // Limite de l'incrément
 #define INCREMENT_LIMIT 1
 // Initialisation de la donnée
-int data = 0;
 
 // Fonction exécutée dans le fork
 void createFork(int i) {
