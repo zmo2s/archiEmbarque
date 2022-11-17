@@ -4,12 +4,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-// Nombre total de thread
-#define NB_FORK 2
-// Limite de l'incrément
-#define INCREMENT_LIMIT 1
-// Initialisation de la donnée
-
 // Fonction exécutée dans le fork
 void createFork(int i) {
 	printf("Démarage du process %d \n",i);
